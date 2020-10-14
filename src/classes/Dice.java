@@ -3,7 +3,7 @@ package classes;
 import java.util.Random;
 
 public class Dice{
-
+    
     private int[] result = {0,0,0,0,0,0};
 
     @Override
