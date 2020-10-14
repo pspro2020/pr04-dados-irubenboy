@@ -3,7 +3,7 @@ package classes;
 import java.util.Random;
 
 public class Dice{
-    
+
     private int[] result = {0,0,0,0,0,0};
 
     @Override
@@ -21,7 +21,7 @@ public class Dice{
         return s;
     }
 
-    public void throwDice(){
+    public synchronized void throwDice(){
         Random r = new Random();
         int number = r.nextInt(6)+1;
 
