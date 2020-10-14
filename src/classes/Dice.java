@@ -4,57 +4,28 @@ import java.util.Random;
 
 public class Dice{
 
-    private static int[] nums = {1, 2, 3, 4, 5, 6};
-    private int num1;
-    private int num2;
-    private int num3;
-    private int num4;
-    private int num5;
-    private int num6;
+    private int[] result = {0,0,0,0,0,0};
 
-    public int getNum1() {
-        return num1;
+    @Override
+    public String toString() {
+        String s = "";
+        int total = 0;
+        for (int i = 0; i < result.length; i++) {
+            s += String.format("Numero %d: %d veces\n", i+1, result[i]);
+            total += result[i];
+        }
+
+        s += String.format("Total de veces: %d + %d + %d + %d + %d + %d = %d\n", result[0], result[1], result[2],
+                result[3], result[4], result[5], total);
+
+        return s;
     }
-
-    public int getNum2() {
-        return num2;
-    }
-
-    public int getNum3() {
-        return num3;
-    }
-
-    public int getNum4() {
-        return num4;
-    }
-
-    public int getNum5() {
-        return num5;
-    }
-
-    public int getNum6() {
-        return num6;
-    }
-
-
 
     public void throwDice(){
         Random r = new Random();
-        int number = r.nextInt(6);
+        int number = r.nextInt(6)+1;
 
-        if(number == 1){
-            num1++;
-        } else if(number == 2){
-            num2++;
-        } else if(number == 3){
-            num3++;
-        } else if(number == 4){
-            num4++;
-        } else if(number == 5){
-            num5++;
-        } else if(number == 6){
-            num6++;
-        }
+        result[number-1]++;
 
         System.out.println("Se ha lanzado el número " + number);
 
